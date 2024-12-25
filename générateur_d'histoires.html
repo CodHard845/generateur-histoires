@@ -1,0 +1,223 @@
+<html><head><base href="." target="_blank"></base>
+<style>
+/* Keeping existing styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f0f2f5;
+}
+
+.settings-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.story-output {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-height: 200px;
+    white-space: pre-wrap;
+}
+
+h1 {
+    color: #1a73e8;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+select, input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #1557b0;
+}
+
+.character-traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+</style>
+</head>
+<body>
+<h1>Générateur d'Histoire Personnalisée</h1>
+
+<div class="settings-panel">
+    <label for="genre">Genre de l'histoire:</label>
+    <select id="genre">
+        <option value="fantasy">Fantasy</option>
+        <option value="scifi">Science-Fiction</option>
+        <option value="adventure">Aventure</option>
+        <option value="mystery">Mystère</option>
+        <option value="romance">Romance</option>
+    </select>
+
+    <label for="length">Longueur de l'histoire:</label>
+    <select id="length">
+        <option value="short">Courte (environ 500 mots)</option>
+        <option value="medium">Moyenne (environ 1000 mots)</option>
+        <option value="long">Longue (environ 2000 mots)</option>
+        <option value="epic">Épique (environ 10000 mots)</option>
+        <option value="mega">Méga Épique (environ 30000 mots)</option>
+        <option value="legendary">Légendaire (environ 300000 mots)</option>
+    </select>
+
+    <label for="mainCharacter">Personnage Principal:</label>
+    <div class="character-traits">
+        <div>
+            <label for="charName">Nom:</label>
+            <input type="text" id="charName" placeholder="Nom du personnage">
+        </div>
+        <div>
+            <label for="charAge">Âge:</label>
+            <input type="number" id="charAge" min="1" max="150" value="25">
+        </div>
+        <div>
+            <label for="charGender">Genre:</label>
+            <select id="charGender">
+                <option value="male">Masculin</option>
+                <option value="female">Féminin</option>
+                <option value="other">Autre</option>
+            </select>
+        </div>
+    </div>
+
+    <label for="setting">Cadre de l'histoire:</label>
+    <select id="setting">
+        <option value="medieval">Médiéval</option>
+        <option value="modern">Moderne</option>
+        <option value="future">Futuriste</option>
+        <option value="postapocalyptic">Post-apocalyptique</option>
+    </select>
+
+    <label for="tone">Ton de l'histoire:</label>
+    <select id="tone">
+        <option value="happy">Joyeux</option>
+        <option value="dramatic">Dramatique</option>
+        <option value="mysterious">Mystérieux</option>
+        <option value="humorous">Humoristique</option>
+    </select>
+
+    <label for="plot">Élément d'intrigue principal:</label>
+    <select id="plot">
+        <option value="quest">Quête</option>
+        <option value="conflict">Conflit</option>
+        <option value="discovery">Découverte</option>
+        <option value="transformation">Transformation</option>
+    </select>
+
+    <button onclick="generateStory()" style="margin-top: 20px;">Générer l'Histoire</button>
+</div>
+
+<div class="story-output" id="storyOutput"></div>
+
+<script>
+function generateStory() {
+    const genre = document.getElementById('genre').value;
+    const length = document.getElementById('length').value;
+    const charName = document.getElementById('charName').value || 'le héros';
+    const charAge = document.getElementById('charAge').value;
+    const charGender = document.getElementById('charGender').value;
+    const setting = document.getElementById('setting').value;
+    const tone = document.getElementById('tone').value;
+    const plot = document.getElementById('plot').value;
+
+    const beginnings = {
+        fantasy: `Dans un royaume lointain, ${charName} vivait une vie paisible jusqu'au jour où...`,
+        scifi: `Dans un futur distant, ${charName} découvrit une technologie qui allait tout changer...`,
+        adventure: `Par une belle matinée, ${charName} reçut une mystérieuse invitation qui allait bouleverser sa vie...`,
+        mystery: `La disparition inexpliquée d'un ancien artefact allait mener ${charName} vers une enquête périlleuse...`,
+        romance: `Le destin avait prévu une rencontre inattendue pour ${charName} ce jour-là...`
+    };
+
+    const settings = {
+        medieval: "dans un château ancestral",
+        modern: "dans une ville trépidante",
+        future: "dans une métropole futuriste",
+        postapocalyptic: "dans un monde en ruines"
+    };
+
+    const plotTwists = {
+        quest: `se lança dans une quête périlleuse`,
+        conflict: `dut faire face à un adversaire redoutable`,
+        discovery: `fit une découverte qui changea tout`,
+        transformation: `vécut une transformation incroyable`
+    };
+
+    let story = `${beginnings[genre]}\n\n`;
+    story += `${charName}, âgé${charGender === 'female' ? 'e' : ''} de ${charAge} ans, vivait ${settings[setting]}. `;
+    story += `Un jour, notre protagoniste ${plotTwists[plot]}. `;
+
+    const basePlot = `Les jours passèrent, remplis de défis et d'aventures. ${charName} rencontra des alliés précieux et dut surmonter des obstacles qui semblaient insurmontables. `;
+    const expandedPlot = `Les semaines devinrent des mois, et l'aventure prit une ampleur inattendue. De nouveaux personnages rejoignirent l'histoire, chacun apportant son lot de surprises et de rebondissements. `;
+    const epicContent = `Ce qui commença comme une simple aventure se transforma en une épopée légendaire. Les années passèrent, et ${charName} devint une figure légendaire, inspirant les générations futures. `;
+
+    switch(tone) {
+        case 'happy':
+            story += `Avec optimisme et détermination, l'aventure s'annonçait passionnante. `;
+            break;
+        case 'dramatic':
+            story += `Le poids des responsabilités pesait lourd sur ses épaules. `;
+            break;
+        case 'mysterious':
+            story += `Des secrets ancestraux attendaient d'être révélés. `;
+            break;
+        case 'humorous':
+            story += `Ce qui donna lieu à des situations pour le moins cocasses! `;
+            break;
+    }
+
+    // Add length-based content
+    if (length === 'medium') {
+        story += `\n\n${basePlot}`;
+    } else if (length === 'long') {
+        story += `\n\n${basePlot}${expandedPlot}`;
+    } else if (length === 'epic') {
+        story += `\n\n${basePlot}${expandedPlot}${epicContent}`;
+        story += `\n\nDes royaumes entiers furent bouleversés, des alliances se formèrent et se brisèrent... `;
+    } else if (length === 'mega') {
+        story += `\n\n${basePlot}${expandedPlot}${epicContent}`;
+        story += `\n\nL'histoire de ${charName} devint si vaste qu'elle engloba des continents entiers. Des civilisations prospérèrent et tombèrent, des empires se construisirent et s'effondrèrent. `;
+        story += `\n\nChaque chapitre de sa vie était rempli d'aventures extraordinaires, de batailles épiques, et de moments de sagesse profonde. `;
+        story += `\n\nDes chroniqueurs passèrent leur vie à documenter ses exploits, et des bardes composèrent d'innombrables chansons sur ses aventures. `;
+    } else if (length === 'legendary') {
+        story += `\n\n${basePlot}${expandedPlot}${epicContent}`;
+        story += `\n\nL'histoire de ${charName} transcenda le temps lui-même. Des générations entières vécurent et moururent pendant que sa légende continuait de grandir. `;
+        story += `\n\nDes bibliothèques entières furent construites pour contenir les chroniques de ses aventures. Chaque royaume, chaque peuple avait sa propre version de la légende. `;
+        story += `\n\nDes prophéties anciennes se réalisèrent, des mystères millénaires furent résolus, et le monde lui-même fut transformé par ses actions. `;
+        story += `\n\nLes étoiles dans le ciel furent renommées en son honneur, et même les dieux écoutaient avec attention les récits de ses exploits. `;
+        story += `\n\nSon histoire devint si vaste qu'elle créa sa propre mythologie, influençant la culture et les traditions de civilisations encore à naître. `;
+    }
+
+    document.getElementById('storyOutput').textContent = story;
+}
+</script>
+</body></html>
