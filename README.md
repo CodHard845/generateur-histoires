@@ -31,5 +31,3 @@ Discover your unique story!
 HTML5
 CSS3
 JavaScript 
-
-Translated with DeepL.com (free version)
