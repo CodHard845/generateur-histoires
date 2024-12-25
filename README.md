@@ -1,33 +1,35 @@
-Générateur d'Histoires Personnalisées | Générateur d'histoires personnalisées
-Un générateur web interactif qui crée des histoires uniques en fonction des préférences de l'utilisateur. Créé par un jeune développeur de 13 ans passionné par la programmation et la narration.
-✨ Fonctionnalités | Caractéristiques
-🎨 Personnalisation complète | Personnalisation complète
+Personalized Story Generator | Personalized Story Generator
+An interactive web generator that creates unique stories based on user preferences. Created by a 13-year-old developer with a passion for programming and storytelling.
+✨ Features | Characteristics
+🎨 Full customization | Full customization
 
-5 genres différents (Fantastique, Science-Fiction, Aventure, Mystère, Romance)
-6 longueurs d'histoire (de 500 à 300 000 mots)
-Personnalisation du héros (nom, âge, genre)
-4 univers (Médiéval, Moderne, Futuriste, Post-apocalyptique)
-4 tonnes narratifs (Joyeux, Dramatique, Mystérieux, Humoristique)
-4 types d'intrigues principales (Quête, Conflit, Découverte, Transformation)
+5 different genres (Fantasy, Science Fiction, Adventure, Mystery, Romance)
+6 story lengths (from 500 to 300,000 words)
+Hero customization (name, age, genre)
+4 universes (Medieval, Modern, Futuristic, Post-apocalyptic)
+4 narrative tons (Joyful, Dramatic, Mysterious, Humorous)
+4 main plot types (Quest, Conflict, Discovery, Transformation)
 
-💡 Caractéristiques techniques | Caractéristiques techniques
+💡 Technical features | Technical features
 
-Interface utilisateur intuitive et réactive
-Génération dynamique du contenu en JavaScript
-Design moderne avec CSS personnalisé
-Structure de code modulaire et maintenable
+Intuitive, responsive user interface
+Dynamic content generation in JavaScript
+Modern design with custom CSS
+Modular, maintainable code structure
 
-🚀 Commentez l'utiliser | Comment utiliser
+🚀 How to use it | How to use it
 
 
-Sélectionnez vos préférences dans le panneau de configuration
-Personnalisez votre personnage principal
-Choisissez le cadre et le ton de l'histoire
-Cliquez sur "Générer l'Histoire"
-Découvrez votre histoire unique !
+Select your preferences in the control panel
+Customize your main character
+Choose the setting and tone of the story
+Click on “Generate Story”
+Discover your unique story!
 
-💻 Technologies utilisées | Technologies utilisées
+💻 Technologies used | Technologies used
 
 HTML5
 CSS3
 JavaScript 
+
+Translated with DeepL.com (free version)
